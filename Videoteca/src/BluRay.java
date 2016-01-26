@@ -7,10 +7,12 @@ public class BluRay extends Film{
 	}
 	
 	public double costoNoleggio(){
-		double amount = 0;
-		if(giorniNoleggio == 1) amount = 1;
-		else amount = giorniNoleggio + ((giorniNoleggio - 1) * 0.1) ; 
-			return amount;
-	}
-
+		
+		 if (giorniNoleggio == 0) return 0;
+	        double amount = 1;
+	        for (int i = 0; i < giorniNoleggio - 1; i++){
+	        	amount += amount * (1 + (0.1 * (i + 1)));
+	        }
+	        return amount;
+	    }
 }
